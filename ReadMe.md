@@ -14,7 +14,7 @@ Required command line parameters:
 
 --query_port: the port of the query service on which the node is currently registered (RDS) 
 
-e.g. python nmos-test.py --query_ip=172.56.123.5 --query-port=4480
+e.g. python nmos-test.py --query_ip=172.56.123.5 --query_port=4480
 
 This tool provides a simple web service which is available on http://localhost:5000.
 Provide the NodeUrl (see the detailed description on the webpage) and select a checklist.
