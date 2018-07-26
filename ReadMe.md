@@ -16,6 +16,12 @@ Required command line parameters:
 
 e.g. python nmos-test.py --query_ip=172.56.123.5 --query_port=4480
 
+Supported command line parameters:
+
+--test_number: a number of desired specific test. If it is not presented all tests will be performed
+
+e.g. python nmos-test.py --query_ip=172.56.123.5 --query_port=4480 --test_number=09
+
 This tool provides a simple web service which is available on http://localhost:5000.
 Provide the NodeUrl (see the detailed description on the webpage) and select a checklist.
 The result of the the test will be shown after a couple seconds.

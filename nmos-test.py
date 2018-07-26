@@ -49,13 +49,14 @@ def index_page():
             if test == "IS-04-01":
                 url = "http://{}:{}/x-nmos/node/{}/".format(ip, str(port), version)
                 test_obj = IS0401Test.IS0401Test(url, QUERY_URL)
-                result = test_obj.run_tests()
-                return render_template("result.html", url=url, test=test, result=result)
             else:  # test == "IS-05-01"
                 url = "http://{}:{}/x-nmos/connection/{}/".format(ip, str(port), version)
                 test_obj = IS0501Test.IS0501Test(url)
+            if args.test_number == None:
                 result = test_obj.run_tests()
-                return render_template("result.html", url=url, test=test, result=result)
+            else:
+                result = test_obj.run_tests(args.test_number)
+            return render_template("result.html", url=url, test=test, result=result)
         else:
             flash("Error: {}".format(form.errors))
 
@@ -66,6 +67,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Riedel NMOS Interop Test Tool")
     parser.add_argument("--query_ip", help="String. IPv4 address of the query service (RDS).", required=True)
     parser.add_argument("--query_port", help="Integer. Port of the query service (RDS).", required=True)
+    parser.add_argument("--test_number", help="Integer. A number of desired specific test.", required=False)
     args = parser.parse_args()
     QUERY_URL = "http://{}:{}/x-nmos/query".format(args.query_ip, args.query_port)
     app.run(host='0.0.0.0')
