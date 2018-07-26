@@ -125,7 +125,7 @@ class IS0501Test:
         self.result.append(self.test_39())
         return self.result
 
-    def run_tests(self, value):
+    def run_test(self, value):
         method_name = 'test_' + str(value)
         method = getattr(self, method_name)
         self.result.append(method())

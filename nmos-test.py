@@ -55,7 +55,7 @@ def index_page():
             if args.test_number == None:
                 result = test_obj.run_tests()
             else:
-                result = test_obj.run_tests(args.test_number)
+                result = test_obj.run_test(args.test_number)
             return render_template("result.html", url=url, test=test, result=result)
         else:
             flash("Error: {}".format(form.errors))
